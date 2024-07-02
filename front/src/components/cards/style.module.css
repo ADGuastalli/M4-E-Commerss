@@ -1,0 +1,86 @@
+.conteiner {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 5%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.conteinerDetail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px 5%;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: auto;
+  background-color: #ffffffd1;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: black;
+  padding: 15px;
+  margin: 15px;
+  overflow: hidden;
+  font-size: small;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.card h2,
+.card h4,
+.card p {
+  margin: 4px 0;
+}
+
+.description {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.image {
+  margin: 20px auto;
+  object-fit: cover;
+  width: auto;
+  height: 200px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  border-radius: 15px;
+  align-items: center;
+}
+
+.button {
+  background-color: #b1aeaec5;
+  border: none;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.buttoncontainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 40px;
+}

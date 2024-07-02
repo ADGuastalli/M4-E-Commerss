@@ -1,0 +1,79 @@
+.body {
+  background-image: url("../../public/fondointro.png");
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+.title {
+  font-size: 11rem;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .title {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.subtitle {
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.button {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.conteinerForm {
+  display: flex;
+  width: 100%;
+  margin: 50px 0 0 0;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.register,
+.login {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px 0px;
+}
+
+.register {
+  padding-right: 40px;
+  border-right: #ffffff 3px solid;
+}
+
+.login {
+  padding-left: 40px;
+}
