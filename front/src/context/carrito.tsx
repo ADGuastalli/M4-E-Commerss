@@ -43,7 +43,8 @@ export const CarritoContext = createContext<ICartContextType>({
 const checkout = async (CartItems: IProduct[]) => {
   try {
     const products = CartItems.map((item) => item.id);
-    const token = localStorage.getItem("token");
+    const token =
+      typeof window !== "undefined" ? localStorage.getItem("token") : null;
     const response = await fetch("http://localhost:3001/orders", {
       method: "POST",
       headers: {

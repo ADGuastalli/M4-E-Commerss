@@ -9,7 +9,8 @@ export const Dashboard: React.FC = () => {
   const { isLogged, user } = useContext(UserContext);
 
   useEffect(() => {
-    const storedToken = localStorage.getItem("token");
+    const storedToken =
+      typeof window !== "undefined" ? localStorage.getItem("token") : null;
     if (storedToken) {
       setToken(storedToken);
     }
