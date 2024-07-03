@@ -16,7 +16,7 @@ const addItem = async (
 
   try {
     const response = await axios.get<IProduct>(
-      `http://localhost:3001/products/${product}`
+      `https://proyecto-m4-front.onrender.com/products/${product}`
     );
     const data = response.data;
     const updatedCart = [...cartItems, data];
@@ -45,14 +45,17 @@ const checkout = async (CartItems: IProduct[]) => {
     const products = CartItems.map((item) => item.id);
     const token =
       typeof window !== "undefined" ? localStorage.getItem("token") : null;
-    const response = await fetch("http://localhost:3001/orders", {
-      method: "POST",
-      headers: {
-        authorization: `${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ products }),
-    });
+    const response = await fetch(
+      "https://proyecto-m4-front.onrender.com/orders",
+      {
+        method: "POST",
+        headers: {
+          authorization: `${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ products }),
+      }
+    );
     if (response.ok) {
       console.log("success");
     } else {

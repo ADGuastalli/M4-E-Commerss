@@ -15,7 +15,9 @@ export const ProductProvider = ({
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/products");
+        const response = await axios.get(
+          "https://proyecto-m4-front.onrender.com/products"
+        );
         setProducts(response.data);
       } catch (error) {
         console.log(error);
