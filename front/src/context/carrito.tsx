@@ -16,7 +16,7 @@ const addItem = async (
 
   try {
     const response = await axios.get<IProduct>(
-      `http://localhost:3001/products/${product}`
+      `https://m4-mio.onrender.com/products/${product}`
     );
     const data = response.data;
     const updatedCart = [...cartItems, data];
@@ -44,7 +44,7 @@ const checkout = async (CartItems: IProduct[]) => {
   try {
     const products = CartItems.map((item) => item.id);
     const token = localStorage.getItem("token");
-    const response = await fetch("http://localhost:3001/orders", {
+    const response = await fetch("https://m4-mio.onrender.com/orders", {
       method: "POST",
       headers: {
         authorization: `${token}`,

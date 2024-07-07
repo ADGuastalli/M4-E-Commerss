@@ -21,7 +21,9 @@ export const ProductProvider = ({
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/products");
+        const response = await axios.get(
+          "https://m4-mio.onrender.com/products"
+        );
         setProducts(response.data);
         setFilteredProducts(response.data); // Inicializar filteredProducts con todos los productos
       } catch (error) {

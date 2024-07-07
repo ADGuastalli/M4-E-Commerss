@@ -12,7 +12,8 @@ const RegisterLogin: React.FC = () => {
   const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
-    const storedToken = localStorage.getItem("token");
+    const storedToken =
+      typeof window !== "undefined" && localStorage.getItem("token");
     if (storedToken) {
       setToken(storedToken);
     }

@@ -1,19 +1,19 @@
 export default function Sitemap() {
   return [
     {
-      url: "http://localhost:3001/home",
+      url: "https://m4-mio.onrender.com/home",
       lastModified: new Date(),
       changeFrecuency: "Monthly",
       priority: "1.0",
     },
     {
-      url: "http://localhost:3001/register",
+      url: "https://m4-mio.onrender.com/register",
       lastModified: new Date(),
       changeFrecuency: "Monthly",
       priority: "0.9",
     },
     {
-      url: "http://localhost:3001/about",
+      url: "https://m4-mio.onrender.com/about",
       lastModified: new Date(),
       changeFrecuency: "Monthly",
       priority: "0.8",
