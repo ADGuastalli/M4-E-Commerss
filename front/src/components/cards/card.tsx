@@ -10,8 +10,8 @@ const Card: React.FC<IProduct> = ({ name, price, image, id }) => {
 
   return (
     <div className={styles.card}>
-      <h2 className="font-bold text-xl">{name}</h2>
-      <h4 className="font-bold text-md">Precio: ${price}</h4>
+      <h2 className="font-bold text-2xl">{name}</h2>
+      <h4 className="font-bold text-lg">Precio: $ {price}</h4>
       <Link href={`/detail/${id}`}>
         <div className="relative object-contain w-40 h-40 m-4 flex">
           <Image

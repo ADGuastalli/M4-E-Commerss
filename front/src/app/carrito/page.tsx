@@ -5,7 +5,7 @@ import styles from "./carrito.module.css";
 
 function Carrito() {
   return (
-    <div>
+    <div className="grid grid-rows-1 justify-center items-center mt-5 mb-96">
       <div className={styles.conteiner}>
         <div>
           <h1 className="font-bold text-4xl mt-5s">Carrito</h1>

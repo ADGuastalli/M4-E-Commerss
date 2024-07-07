@@ -12,8 +12,7 @@ const RegisterLogin: React.FC = () => {
   const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
-    const storedToken =
-      typeof window !== "undefined" ? localStorage.getItem("token") : null;
+    const storedToken = localStorage.getItem("token");
     if (storedToken) {
       setToken(storedToken);
     }
@@ -22,11 +21,11 @@ const RegisterLogin: React.FC = () => {
   return (
     <div className={styles.conteinerForm}>
       <div className={styles.register}>
-        <label>Register</label>
+        <label className="text-2xl font-bold">Register</label>
         <Register />
       </div>
       <div className={styles.login}>
-        <label>Login</label>
+        <label className="text-2xl font-bold">Login</label>
         <Login token={token} setToken={setToken} />
       </div>
     </div>

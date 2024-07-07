@@ -13,14 +13,14 @@ const validate = (values, fieldsToValidate) => {
     fieldsToValidate.includes("email") &&
     (!values.email || !/\S+@\S+\.\S+/.test(values.email))
   ) {
-    errors.email = "* Formato de email incorrecto";
+    errors.email = "* Formato de email incorrecto Ej: 4oLZ9@example.com";
   }
 
   if (
     fieldsToValidate.includes("user_email") &&
     (!values.user_email || !/\S+@\S+\.\S+/.test(values.user_email))
   ) {
-    errors.user_email = "* Formato de email incorrecto";
+    errors.user_email = "* Formato de email incorrecto Ej: 4oLZ9@example.com";
   }
 
   if (fieldsToValidate.includes("address") && !values.address) {

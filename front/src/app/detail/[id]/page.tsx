@@ -25,7 +25,7 @@ function EventDetail({ params }: { params: { id: string } }) {
     return <div>Loading...</div>;
   }
   return (
-    <div className={styles.conteinerDetail}>
+    <div className="flex flex-wrap justify-center items-center p-5 md:p-10">
       <div className="mr-20">
         <Link href="/home">
           <button className="buttonPrincipal">

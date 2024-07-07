@@ -5,7 +5,7 @@ import { CarritoContext } from "../../context/carrito";
 import style from "../cards/style.module.css";
 
 function AddToCart({ id }: { id: number }) {
-  const { addToCart } = useContext(CarritoContext);
+  const { addToCart, cartItems } = useContext(CarritoContext);
   const [added, setAdded] = useState(false);
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
@@ -13,11 +13,12 @@ function AddToCart({ id }: { id: number }) {
     console.log("Producto agregado al carrito con ID:", id);
     setAdded(true);
   }
+  const existingProduct = cartItems.find((item) => item.id === id);
 
   return (
     <div className={style.buttoncontainer}>
-      {added ? (
-        <p className="text-lime-500 font-bold text-xl">
+      {added || existingProduct ? (
+        <p className="text-lime-500 font-bold text-lg bg-gray-100/50 p-3 rounded-lg">
           Producto añadido al carrito
         </p>
       ) : (

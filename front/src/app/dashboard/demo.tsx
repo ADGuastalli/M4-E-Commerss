@@ -9,15 +9,14 @@ export const Dashboard: React.FC = () => {
   const { isLogged, user } = useContext(UserContext);
 
   useEffect(() => {
-    const storedToken =
-      typeof window !== "undefined" ? localStorage.getItem("token") : null;
+    const storedToken = localStorage.getItem("token");
     if (storedToken) {
       setToken(storedToken);
     }
   }, []);
 
   return (
-    <div>
+    <div className="mx-36  ">
       <div className="text-center">
         <div className="text-left">
           <h1 className="text-5xl font-bold m-10">Mi Perfil</h1>

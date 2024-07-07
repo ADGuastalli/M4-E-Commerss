@@ -1,16 +1,13 @@
 import { IUser, ILogin } from "@/interfece/Interface";
 
 export const postSignup = async (user: Omit<IUser, "id">) => {
-  const response = await fetch(
-    "https://proyecto-m4-front.onrender.com/users/register",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    }
-  );
+  const response = await fetch("http://localhost:3001/users/register", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  });
 
   const data = await response.json();
   return data;
@@ -18,16 +15,13 @@ export const postSignup = async (user: Omit<IUser, "id">) => {
 
 export const postSignin = async (credentials: ILogin) => {
   try {
-    const response = await fetch(
-      "https://proyecto-m4-front.onrender.com/users/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      }
-    );
+    const response = await fetch("http://localhost:3001/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(credentials),
+    });
 
     if (!response.ok) {
       throw new Error("Failed to sign in");
@@ -42,14 +36,11 @@ export const postSignin = async (credentials: ILogin) => {
 };
 
 export const getUserOrders = async (token: string) => {
-  const response = await fetch(
-    "https://proyecto-m4-front.onrender.com/users/orders",
-    {
-      headers: {
-        authorization: `${token}`,
-      },
-    }
-  );
+  const response = await fetch("http://localhost:3001/users/orders", {
+    headers: {
+      authorization: `${token}`,
+    },
+  });
   const data = await response.json();
   return data;
 };

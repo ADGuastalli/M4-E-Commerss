@@ -48,12 +48,8 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
       }
 
       setUser(data);
-      typeof window !== "undefined"
-        ? localStorage.setItem("user", JSON.stringify(data))
-        : null;
-      typeof window !== "undefined"
-        ? localStorage.setItem("token", data.token)
-        : null;
+      localStorage.setItem("user", JSON.stringify(data));
+      localStorage.setItem("token", data.token);
       setIsLogged(true);
       return true;
     } catch (error) {
@@ -63,10 +59,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   };
   const getOrders = async () => {
     try {
-      const token: string =
-        typeof window !== "undefined"
-          ? localStorage.getItem("token") ?? ""
-          : "";
+      const token: string = localStorage.getItem("token") || "";
       const data = await getUserOrders(token);
       setOrders(data);
     } catch (error) {
@@ -75,23 +68,21 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   const logOut = () => {
-    typeof window !== "undefined" ? localStorage.removeItem("user") : null;
-    typeof window !== "undefined" ? localStorage.removeItem("token") : null;
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
     setUser(null);
     setIsLogged(false);
   };
 
   useEffect(() => {
-    const token =
-      typeof window !== "undefined" ? localStorage.getItem("token") : null;
+    const token = localStorage.getItem("token");
     if (token) {
       setIsLogged(true);
     }
   }, [user]);
 
   useEffect(() => {
-    const user =
-      typeof window !== "undefined" ? localStorage.getItem("user") : null;
+    const user = localStorage.getItem("user");
     if (user) {
       setUser(JSON.parse(user));
       return;

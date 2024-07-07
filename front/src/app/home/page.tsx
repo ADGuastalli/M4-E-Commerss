@@ -3,6 +3,7 @@ import Cards from "../../components/cards/indexCard";
 import ContactMail from "../../components/contact/indexMail";
 import ContacAddress from "@/components/contact/indexAddress";
 import CarouselComponent from "@/components/carrusel/carrusel";
+import HomePageComoComprar from "@/components/comoComprar/page";
 
 export default function Home() {
   return (
@@ -16,15 +17,29 @@ export default function Home() {
         <CarouselComponent />
       </div>
       <div>
-        <h2 className="text-xl sm:text-3xl font-bold ml-5 mt-5">
-          Nuestros Productos
-        </h2>
+        <div>
+          <h2 className="text-xl sm:text-3xl font-bold ml-5 mt-10">
+            Nuestros Productos
+          </h2>
+        </div>
+
+        <div>
+          <Cards />
+        </div>
       </div>
+
       <div>
-        <Cards />
+        <div>
+          <h2 className="text-xl sm:text-3xl font-bold ml-5 mt-9">
+            Como Comprar
+          </h2>
+        </div>
+        <div>
+          <HomePageComoComprar />
+        </div>
       </div>
-      <div className="flex flex-col sm:flex-row justify-center mt-5 sm:mt-10">
-        <div className="border-r-4 pr-5 w-full sm:w-96">
+      <div className="flex flex-col sm:flex-row justify-center  sm:mt-10">
+        <div className="border-r-2 pr-5 w-full sm:w-96">
           <ContactMail />
         </div>
         <div className="pl-5 w-full sm:w-96">

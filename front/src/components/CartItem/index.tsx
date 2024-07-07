@@ -14,7 +14,7 @@ function CartItem({ product, remove = () => {} }: IProductCardProps) {
   };
 
   return (
-    <div className="m-0">
+    <div>
       <div className={styles.columnasItems}>
         <div className="relative object-contain w-36 h-36 m-4 flex">
           <Image

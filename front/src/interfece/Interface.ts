@@ -107,6 +107,12 @@ interface ICartContextType {
   proccedToCheckout: () => void;
 }
 
+interface IProductContextType {
+  products: IProduct[];
+  searchProducts: (search: string) => void;
+  filteredProducts: IProduct[];
+}
+
 export type {
   IRegisterUser,
   IRegisterUserResponse,
@@ -122,4 +128,5 @@ export type {
   ICartContextType,
   IUserContextType,
   ILogin,
+  IProductContextType,
 };

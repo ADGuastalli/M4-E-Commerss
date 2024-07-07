@@ -16,7 +16,7 @@ const Logout: React.FC<LogoutProps> = ({ setToken }) => {
 
   const handleLogout = () => {
     setToken(null);
-    typeof window !== "undefined" ? localStorage.clear() : null;
+    localStorage.clear();
     setIsLogged(false);
     closeModal();
     router.push("/");
