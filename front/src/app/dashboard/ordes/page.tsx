@@ -14,8 +14,6 @@ function Orders() {
     getOrders();
   }, []);
 
-  console.log(orders);
-
   if (!userContext) {
     return <div>Loading...</div>;
   }

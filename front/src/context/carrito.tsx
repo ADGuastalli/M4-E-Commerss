@@ -20,7 +20,6 @@ const addItem = async (
     );
     const data = response.data;
     const updatedCart = [...cartItems, data];
-    console.log("Producto añadido al carrito:", data);
     return updatedCart;
   } catch (error) {
     console.error("Error fetching product:", error);

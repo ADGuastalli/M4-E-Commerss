@@ -10,7 +10,6 @@ function AddToCart({ id }: { id: number }) {
 
   function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
     addToCart(id);
-    console.log("Producto agregado al carrito con ID:", id);
     setAdded(true);
   }
   const existingProduct = cartItems.find((item) => item.id === id);
