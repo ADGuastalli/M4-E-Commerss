@@ -147,7 +147,7 @@ function Login({ token, setToken }: any) {
               </button>
               <div className="p-4 md:p-5 text-center">
                 <svg
-                  className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
+                  className="mx-auto mb-4 text-gray-400 w-12 h-12"
                   width="60px"
                   height="60px"
                   viewBox="0 0 24 24"
