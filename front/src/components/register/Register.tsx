@@ -309,6 +309,7 @@ function Register() {
               </button>
               <div className="p-4 md:p-5 text-center">
                 <svg
+                  className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
                   fill="#000000"
                   width="60px"
                   height="60px"
