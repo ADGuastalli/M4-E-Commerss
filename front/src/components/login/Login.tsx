@@ -1,15 +1,13 @@
-import React, { useState, useContext } from "react";
-import { useRouter } from "next/router";
+"use client";
+
+import React from "react";
+import { useState, useContext } from "react";
 import validate from "../helpers/validate";
 import { UserContext } from "../../context/userContex";
+import { useRouter } from "next/navigation";
 import { IErrors } from "../../interfece/Interface";
 
-interface Props {
-  token: string; // Ajusta los tipos según corresponda
-  setToken: React.Dispatch<React.SetStateAction<string>>;
-}
-
-const Login: React.FC<Props> = ({ token, setToken }) => {
+function Login({ token, setToken }: any) {
   const { signIn } = useContext(UserContext);
   const router = useRouter();
 
@@ -27,7 +25,7 @@ const Login: React.FC<Props> = ({ token, setToken }) => {
     return userData.email !== "" && userData.password !== "";
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: any) => {
     const { name, value } = event.target;
     const newUserData = { ...userData, [name]: value };
 
@@ -42,7 +40,7 @@ const Login: React.FC<Props> = ({ token, setToken }) => {
   const openErrorModal = () => setErrorModal(true);
   const closeErrorModal = () => setErrorModal(false);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     const success = await signIn(userData);
     if (success) {
@@ -238,6 +236,6 @@ const Login: React.FC<Props> = ({ token, setToken }) => {
       )}
     </div>
   );
-};
+}
 
 export default Login;
