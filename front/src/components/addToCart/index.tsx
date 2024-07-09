@@ -17,7 +17,7 @@ function AddToCart({ id }: { id: number }) {
   return (
     <div className={style.buttoncontainer}>
       {added || existingProduct ? (
-        <p className="text-lime-500 font-bold text-lg bg-gray-100/50 p-3 rounded-lg">
+        <p className="text-lime-500 font-bold text-sm bg-gray-100/50 p-3 rounded-lg">
           Product added to shopping cart
         </p>
       ) : (
