@@ -25,7 +25,7 @@ export const ProductProvider = ({
           "https://m4-mio.onrender.com/products"
         );
         setProducts(response.data);
-        setFilteredProducts(response.data); // Inicializar filteredProducts con todos los productos
+        setFilteredProducts(response.data);
       } catch (error) {
         console.log(error);
         return [];
