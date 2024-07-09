@@ -202,16 +202,18 @@ function Register() {
             Confirm password
           </label>
         </div>
-        <p
-          style={{
-            color: "red",
-            fontSize: "10px",
-            marginTop: "10px",
-            textShadow: "1px 1px 1px black",
-          }}
-        >
-          * All fields are mandatory
-        </p>
+        {!todosLosCamposCompletos() && (
+          <p
+            style={{
+              color: "red",
+              fontSize: "10px",
+              marginTop: "10px",
+              textShadow: "1px 1px 1px black",
+            }}
+          >
+            * All fields are mandatory
+          </p>
+        )}
         <button
           disabled={!todosLosCamposCompletos()}
           type="submit"

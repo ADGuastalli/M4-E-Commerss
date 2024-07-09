@@ -115,16 +115,18 @@ function ContactMail() {
             </p>
           )}
         </div>
-        <p
-          style={{
-            color: "red",
-            fontSize: "10px",
-            marginTop: "10px",
-            textShadow: "1px 1px 1px black",
-          }}
-        >
-          * All fields are mandatory
-        </p>
+        {!todosLosCamposCompletos() && (
+          <p
+            style={{
+              color: "red",
+              fontSize: "10px",
+              marginTop: "10px",
+              textShadow: "1px 1px 1px black",
+            }}
+          >
+            * All fields are mandatory
+          </p>
+        )}
         <div className="flex justify-center mt-4">
           <input
             disabled={!todosLosCamposCompletos()}
