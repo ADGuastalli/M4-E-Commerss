@@ -4,21 +4,21 @@ const HomePageComoComprar = () => {
   const items = [
     {
       id: "1",
-      title: "Navegación y Búsqueda",
+      title: "Navigation and Search",
       content:
-        "Inicia sesión en APPLE ZONE y explora las diversas opciones de productos disponibles. Lee las descripciones detalladas, compara precios y encuentra el producto que mejor se adapte a tus necesidades.",
+        "Log in to APPLE ZONE and explore the various product options available. Read detailed descriptions, compare prices, and find the product that best suits your needs.",
     },
     {
       id: "2",
-      title: "Agrega al Carrito",
+      title: "Add to Cart",
       content:
-        "Una vez que hayas seleccionado un producto, agrégalo al carrito de compras. Puedes seleccionar una unidad de cada producto. El carrito te mostrará el total de tu compra, y también tendrás la opción de eliminar productos si lo deseas.",
+        "Once you have selected a product, add it to your shopping cart. You can choose one unit of each product. The cart will show you the total of your purchase, and you will also have the option to remove products if you wish.",
     },
     {
       id: "3",
-      title: "Confirmación",
+      title: "Confirmation",
       content:
-        "Cuando estés seguro de que tu carrito está completo, procede a confirmar el pedido. Una vez confirmado, la orden se procesará automáticamente, y estarás en camino para recibir tus productos.",
+        "Once you are sure your cart is complete, proceed to confirm your order. Once confirmed, the order will be processed automatically, and you will be on your way to receiving your products.",
     },
   ];
 

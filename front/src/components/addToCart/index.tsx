@@ -18,7 +18,7 @@ function AddToCart({ id }: { id: number }) {
     <div className={style.buttoncontainer}>
       {added || existingProduct ? (
         <p className="text-lime-500 font-bold text-lg bg-gray-100/50 p-3 rounded-lg">
-          Producto añadido al carrito
+          Product added to shopping cart
         </p>
       ) : (
         <div>
@@ -42,7 +42,7 @@ function AddToCart({ id }: { id: number }) {
                 strokeLinejoin="round"
               />
             </svg>
-            <span className="mr-2">Añadir al Carrito</span>
+            <span className="mr-2">Add to Shopping Cart</span>
           </button>
         </div>
       )}

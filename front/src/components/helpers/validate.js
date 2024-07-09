@@ -13,14 +13,14 @@ const validate = (values, fieldsToValidate) => {
     fieldsToValidate.includes("email") &&
     (!values.email || !/\S+@\S+\.\S+/.test(values.email))
   ) {
-    errors.email = "* Formato de email incorrecto Ej: 4oLZ9@example.com";
+    errors.email = "* Incorrect email format. Example: 4oLZ9@example.com";
   }
 
   if (
     fieldsToValidate.includes("user_email") &&
     (!values.user_email || !/\S+@\S+\.\S+/.test(values.user_email))
   ) {
-    errors.user_email = "* Formato de email incorrecto Ej: 4oLZ9@example.com";
+    errors.user_email = "* Incorrect email format. Example: 4oLZ9@example.com";
   }
 
   if (fieldsToValidate.includes("address") && !values.address) {
@@ -38,14 +38,14 @@ const validate = (values, fieldsToValidate) => {
   if (fieldsToValidate.includes("password") && !values.password) {
     errors.password = "*";
   } else if (values.password && values.password.length < 8) {
-    errors.password = "El Password debe ser mayor a 8 caracteres";
+    errors.password = "The password must be longer than 8 characters.";
   }
 
   if (
     fieldsToValidate.includes("repeat_password") &&
     values.password !== values.repeat_password
   ) {
-    errors.repeat_password = "Las contraseñas no coinciden";
+    errors.repeat_password = "The passwords do not match.";
   }
 
   return errors;

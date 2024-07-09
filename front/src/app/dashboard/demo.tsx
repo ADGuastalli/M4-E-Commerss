@@ -9,8 +9,7 @@ export const Dashboard: React.FC = () => {
   const { isLogged, user } = useContext(UserContext);
 
   useEffect(() => {
-    const storedToken =
-      typeof window !== "undefined" && localStorage.getItem("token");
+    const storedToken = localStorage.getItem("token");
     if (storedToken) {
       setToken(storedToken);
     }
@@ -20,15 +19,15 @@ export const Dashboard: React.FC = () => {
     <div className="mx-36  ">
       <div className="text-center">
         <div className="text-left">
-          <h1 className="text-5xl font-bold m-10">Mi Perfil</h1>
+          <h1 className="text-5xl font-bold m-10">My Profile</h1>
           <h3 className="font-bold text-xl mb-2">
-            Nombre de Usuario: {user?.user?.name}
+            Name user: {user?.user?.name}
           </h3>
           <h3 className="font-bold text-xl mb-2">
-            Mail de Usuario: {user?.user?.email}
+            Email user: {user?.user?.email}
           </h3>
           <h3 className="font-bold text-xl mb-2">
-            Rol de Usuario: {user?.user?.role}
+            Rol user: {user?.user?.role}
           </h3>
         </div>
         <div className="mt-10">

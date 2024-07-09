@@ -22,7 +22,7 @@ function Cards() {
           value={search}
           className="border-2 border-white text-white font-bold rounded-md bg-slate-400/50 focus:border-red"
           type="text"
-          placeholder="Buscar..."
+          placeholder="Search..."
           onChange={handleSearch}
         />
       </div>

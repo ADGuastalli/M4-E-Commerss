@@ -50,27 +50,27 @@ function CustomNav() {
 
         <Link href="/about">
           <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
-            Sobre Nosotros
+            About Us
           </button>
         </Link>
 
         {loggedIn ? (
           <Link href="/carrito">
             <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
-              Mi Carrito
+              My Shopping Cart
             </button>
           </Link>
         ) : null}
         {!loggedIn ? (
           <Link href="/register-login">
             <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
-              Register / Log In
+              Register - Log In
             </button>
           </Link>
         ) : (
           <Link href="/dashboard">
             <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
-              Mi Perfil
+              My Profile
             </button>
           </Link>
         )}

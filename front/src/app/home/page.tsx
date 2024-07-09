@@ -19,7 +19,7 @@ export default function Home() {
       <div>
         <div>
           <h2 className="text-xl sm:text-3xl font-bold ml-5 mt-10">
-            Nuestros Productos
+            Our Products
           </h2>
         </div>
 
@@ -31,7 +31,7 @@ export default function Home() {
       <div>
         <div>
           <h2 className="text-xl sm:text-3xl font-bold ml-5 mt-9">
-            Como Comprar
+            How to Buy
           </h2>
         </div>
         <div>

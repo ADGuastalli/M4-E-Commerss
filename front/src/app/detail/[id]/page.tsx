@@ -44,14 +44,14 @@ function EventDetail({ params }: { params: { id: string } }) {
               />
             </svg>
 
-            <span className="mr-2">Ver Mas Productos</span>
+            <span className="mr-2">View More Products</span>
           </button>
         </Link>
       </div>
       <div className={styles.card}>
         <h2 className="font-bold text-xl">{product?.name}</h2>
-        <h4 className="font-bold text-md">Precio: ${product?.price}</h4>
-        <p className="font-bold text-md">Stock Disponible:{product?.stock}u.</p>
+        <h4 className="font-bold text-md">Price: ${product?.price}</h4>
+        <p className="font-bold text-md">Available Stock:{product?.stock}u.</p>
         <p className={styles.description}>{product?.description}</p>
         <Image
           src={product?.image}
@@ -85,7 +85,7 @@ function EventDetail({ params }: { params: { id: string } }) {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="mr-2">Ir a Mi Carrito</span>
+              <span className="mr-2">Go to My Shopping Cart</span>
             </button>
           </Link>
         ) : null}
@@ -109,7 +109,7 @@ function EventDetail({ params }: { params: { id: string } }) {
                   d="M9 3h8a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H9m6-9-4-4m4 4-4 4m4-4H5"
                 />
               </svg>
-              <span className="mr-2">Log-In para poder Compra</span>
+              <span className="mr-2">Log In to Purchase</span>
             </button>
           </Link>
         ) : null}

@@ -62,10 +62,10 @@ function ContactMail() {
 
   return (
     <div>
-      <h2 className="text-3xl font-bold m-10 text-center">Contacto</h2>
+      <h2 className="text-3xl font-bold m-10 text-center">Contact</h2>
       <form ref={form} onSubmit={sendEmail}>
         <div>
-          <label htmlFor="name">Nombre y Apellidos:</label>
+          <label htmlFor="name">First and Last Name:</label>
           <input
             className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             type="text"
@@ -95,7 +95,7 @@ function ContactMail() {
           )}
         </div>
         <div>
-          <label htmlFor="message">Mensaje:</label>
+          <label htmlFor="message">Message:</label>
           <textarea
             className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             id="message"
@@ -116,7 +116,7 @@ function ContactMail() {
             textShadow: "1px 1px 1px black",
           }}
         >
-          * Todos los campos son obligatorios
+          * All fields are mandatory
         </p>
         <div className="flex justify-center mt-4">
           <input
@@ -124,7 +124,7 @@ function ContactMail() {
             onClick={openModal}
             className="disabled:opacity-50 disabled:cursor-not-allowed bg-gray-400 border-none rounded-lg text-black py-4 px-8 text-center no-underline inline-block text-sm cursor-pointer hover:bg-white hover:text-black hover:shadow-[0_0_20px_rgba(255,255,255,0.8)]"
             type="submit"
-            value="Enviar"
+            value="Send"
           />
         </div>
         {isModalOpen && (
@@ -178,7 +178,7 @@ function ContactMail() {
                     />
                   </svg>
                   <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                    Mensaje Enviado Exitosamente
+                    Message Sent Successfully
                   </h3>
                 </div>
               </div>

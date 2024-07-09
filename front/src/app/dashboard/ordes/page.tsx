@@ -20,11 +20,9 @@ function Orders() {
 
   return (
     <div>
-      <h1 className="font-bold text-3xl mb-5">
-        Órdenes Realizadas con Éxito:{" "}
-      </h1>
+      <h1 className="font-bold text-3xl mb-5">Successfully Placed Orders: </h1>
 
-      {orders?.length === 0 && <p>No tienes ordenes realizadas</p>}
+      {orders?.length === 0 && <p>You have no orders placed.</p>}
 
       <ul className="flex flex-wrap justify-center">
         {orders?.map((order: any) => (
@@ -49,7 +47,7 @@ function Orders() {
                     className="w-20 h-20 rounded-xl mb-2"
                   />
                   <p className="font-bold text-md text-black">
-                    Precio: ${product.price}
+                    Price: ${product.price}
                   </p>
                 </div>
               ))}

@@ -7,7 +7,7 @@ function About() {
     <div>
       <div className={styles.conteiner}>
         <div className={styles.card1}>
-          <h1 className="font-bold text-4xl ">Nuestro Camino</h1>
+          <h1 className="font-bold text-4xl ">Our Life</h1>
           <Image src="/historia.png" alt="icono" width={400} height={400} />
         </div>
 

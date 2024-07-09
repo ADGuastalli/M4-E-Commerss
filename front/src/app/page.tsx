@@ -10,9 +10,7 @@ const Home: React.FC = () => {
     <div className={styles.container}>
       <div>
         <h1 className={styles.title}>Apple Zone</h1>
-        <h2 className={styles.subtitle}>
-          Encontra los mejores productoss de Apple
-        </h2>
+        <h2 className={styles.subtitle}>Find the best Apple products</h2>
       </div>
       <div className="mt-20 mx-1">
         <div>
