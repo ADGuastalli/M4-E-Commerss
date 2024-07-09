@@ -1,5 +1,7 @@
-const validate = (values, fieldsToValidate) => {
-  const errors = {};
+import { IErrors, IFormValues } from "@/interfece/Interface";
+
+const validate = (values: IFormValues, fieldsToValidate: string[]): IErrors => {
+  const errors: IErrors = {};
 
   if (fieldsToValidate.includes("name") && !values.name) {
     errors.name = "*";

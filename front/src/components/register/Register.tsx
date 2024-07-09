@@ -5,6 +5,7 @@ import { useState, useContext } from "react";
 import validate from "../helpers/validate";
 import { UserContext } from "../../context/userContex";
 import { useRouter } from "next/navigation";
+import { IErrors } from "@/interfece/Interface";
 
 function Register() {
   const { signUp } = useContext(UserContext);
@@ -19,7 +20,7 @@ function Register() {
     repeat_password: "",
   });
 
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState<IErrors>({
     name: "*",
     email: "*",
     address: "*",
@@ -251,6 +252,7 @@ function Register() {
               </button>
               <div className="p-4 md:p-5 text-center">
                 <svg
+                  className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
                   width="50px"
                   height="50px"
                   viewBox="0 0 24 24"

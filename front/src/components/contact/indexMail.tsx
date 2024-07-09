@@ -2,17 +2,24 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import validate from "../helpers/validate";
+import { IErrors } from "@/interfece/Interface";
+
+interface UserData {
+  user_name: string;
+  user_email: string;
+  message: string;
+}
 
 function ContactMail() {
-  const [userData, setUserData] = useState({
+  const [userData, setUserData] = useState<UserData>({
     user_name: "",
     user_email: "",
     message: "",
   });
-  const [errors, setErrors] = useState({
-    user_name: "*",
-    user_email: "*",
-    message: "*",
+  const [errors, setErrors] = useState<IErrors>({
+    user_name: "",
+    user_email: "",
+    message: "",
   });
 
   const todosLosCamposCompletos = (): boolean => {
@@ -37,7 +44,7 @@ function ContactMail() {
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (form.current) {
+    if (form.current && todosLosCamposCompletos()) {
       emailjs
         .sendForm(
           "service_8x3oa38",

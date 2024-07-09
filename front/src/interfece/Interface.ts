@@ -113,6 +113,30 @@ interface IProductContextType {
   filteredProducts: IProduct[];
 }
 
+interface IFormValues {
+  name?: string;
+  user_name?: string;
+  email?: string;
+  user_email?: string;
+  address?: string;
+  message?: string;
+  phone?: string;
+  password?: string;
+  repeat_password?: string;
+}
+
+interface IErrors {
+  name?: string;
+  user_name?: string;
+  email?: string;
+  user_email?: string;
+  address?: string;
+  message?: string;
+  phone?: string;
+  password?: string;
+  repeat_password?: string;
+}
+
 export type {
   IRegisterUser,
   IRegisterUserResponse,
@@ -129,4 +153,6 @@ export type {
   IUserContextType,
   ILogin,
   IProductContextType,
+  IFormValues,
+  IErrors,
 };

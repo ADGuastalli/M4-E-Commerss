@@ -26,7 +26,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/helpers/validate.js"
+    "src/components/helpers/validate.ts"
   ],
   "exclude": ["node_modules"]
 }

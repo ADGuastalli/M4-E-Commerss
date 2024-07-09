@@ -1,12 +1,15 @@
-"use client";
-
-import React from "react";
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
+import { useRouter } from "next/router";
 import validate from "../helpers/validate";
 import { UserContext } from "../../context/userContex";
-import { useRouter } from "next/navigation";
+import { IErrors } from "../../interfece/Interface";
 
-function Login({ token, setToken }: any) {
+interface Props {
+  token: string; // Ajusta los tipos según corresponda
+  setToken: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Login: React.FC<Props> = ({ token, setToken }) => {
   const { signIn } = useContext(UserContext);
   const router = useRouter();
 
@@ -15,7 +18,7 @@ function Login({ token, setToken }: any) {
     password: "",
   });
 
-  const [errors, setErrors] = useState({
+  const [errors, setErrors] = useState<IErrors>({
     email: "*",
     password: "*",
   });
@@ -24,7 +27,7 @@ function Login({ token, setToken }: any) {
     return userData.email !== "" && userData.password !== "";
   };
 
-  const handleInputChange = (event: any) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     const newUserData = { ...userData, [name]: value };
 
@@ -39,7 +42,7 @@ function Login({ token, setToken }: any) {
   const openErrorModal = () => setErrorModal(true);
   const closeErrorModal = () => setErrorModal(false);
 
-  const handleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const success = await signIn(userData);
     if (success) {
@@ -235,6 +238,6 @@ function Login({ token, setToken }: any) {
       )}
     </div>
   );
-}
+};
 
 export default Login;
