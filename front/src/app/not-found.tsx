@@ -22,7 +22,7 @@ function NotFound() {
             />
           </svg>
 
-          <span className="mr-2">Volver a Home</span>
+          <span className="mr-2">Back to Home</span>
         </button>
       </Link>
     </div>

@@ -1,17 +1,8 @@
 "use client";
 import { useState } from "react";
+import { IAccordionProps } from "@/interfece/Interface";
 
-interface AccordionItemProps {
-  id: string;
-  title: string;
-  content: string;
-}
-
-interface AccordionProps {
-  items: AccordionItemProps[];
-}
-
-const Accordion: React.FC<AccordionProps> = ({ items }) => {
+const Accordion: React.FC<IAccordionProps> = ({ items }) => {
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
   const handleToggle = (id: string) => {

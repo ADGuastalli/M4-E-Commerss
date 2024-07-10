@@ -5,7 +5,7 @@ export default function Robots() {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
+        allow: "/home",
         disallow: "/dashboard",
       },
     ],

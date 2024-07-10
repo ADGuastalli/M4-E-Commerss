@@ -149,6 +149,16 @@ interface IUserData {
   message: string;
 }
 
+interface IAccordionItemProps {
+  id: string;
+  title: string;
+  content: string;
+}
+
+interface IAccordionProps {
+  items: IAccordionItemProps[];
+}
+
 export type {
   IRegisterUser,
   IRegisterUserResponse,
@@ -169,4 +179,6 @@ export type {
   IErrors,
   IModalProps,
   IUserData,
+  IAccordionItemProps,
+  IAccordionProps,
 };
