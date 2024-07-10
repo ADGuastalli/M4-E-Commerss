@@ -6,6 +6,7 @@ import validate from "../helpers/validate";
 import { UserContext } from "../../context/userContex";
 import { useRouter } from "next/navigation";
 import { IErrors } from "../../interfece/Interface";
+import Modal from "../modal/indexModal";
 
 function Login({ token, setToken }: any) {
   const { signIn } = useContext(UserContext);
@@ -34,22 +35,18 @@ function Login({ token, setToken }: any) {
   };
 
   const [successModal, setSuccessModal] = useState(false);
-  const openSuccessModal = () => setSuccessModal(true);
-  const closeSuccessModal = () => setSuccessModal(false);
   const [errorModal, setErrorModal] = useState(false);
-  const openErrorModal = () => setErrorModal(true);
-  const closeErrorModal = () => setErrorModal(false);
 
   const handleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
     const success = await signIn(userData);
     if (success) {
-      openSuccessModal();
+      setSuccessModal(true);
       setTimeout(() => {
         router.push("/home");
       }, 3000);
     } else {
-      openErrorModal();
+      setErrorModal(true);
     }
   };
 
@@ -118,116 +115,64 @@ function Login({ token, setToken }: any) {
           Login
         </button>
       </form>
-      {successModal && (
-        <div
-          id="popup-modal"
-          tabIndex={-1}
-          className="fixed inset-0 z-50 flex items-center justify-center"
+      <Modal isOpen={successModal} onClose={() => setSuccessModal(false)}>
+        <svg
+          className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
+          width="50px"
+          height="50px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <div className="relative p-4 w-full max-w-md max-h-full">
-            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <button
-                type="button"
-                className="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                onClick={closeSuccessModal}
-              >
-                <svg
-                  className="w-3 h-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 14"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                  />
-                </svg>
-                <span className="sr-only">Close modal</span>
-              </button>
-              <div className="p-4 md:p-5 text-center">
-                <svg
-                  className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
-                  width="50px"
-                  height="50px"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M16.0303 10.0303C16.3232 9.73744 16.3232 9.26256 16.0303 8.96967C15.7374 8.67678 15.2626 8.67678 14.9697 8.96967L10.5 13.4393L9.03033 11.9697C8.73744 11.6768 8.26256 11.6768 7.96967 11.9697C7.67678 12.2626 7.67678 12.7374 7.96967 13.0303L9.96967 15.0303C10.2626 15.3232 10.7374 15.3232 11.0303 15.0303L16.0303 10.0303Z"
-                    fill="#1C274C"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M12.0574 1.25H11.9426C9.63424 1.24999 7.82519 1.24998 6.41371 1.43975C4.96897 1.63399 3.82895 2.03933 2.93414 2.93414C2.03933 3.82895 1.63399 4.96897 1.43975 6.41371C1.24998 7.82519 1.24999 9.63422 1.25 11.9426V12.0574C1.24999 14.3658 1.24998 16.1748 1.43975 17.5863C1.63399 19.031 2.03933 20.1711 2.93414 21.0659C3.82895 21.9607 4.96897 22.366 6.41371 22.5603C7.82519 22.75 9.63423 22.75 11.9426 22.75H12.0574C14.3658 22.75 16.1748 22.75 17.5863 22.5603C19.031 22.366 20.1711 21.9607 21.0659 21.0659C21.9607 20.1711 22.366 19.031 22.5603 17.5863C22.75 16.1748 22.75 14.3658 22.75 12.0574V11.9426C22.75 9.63423 22.75 7.82519 22.5603 6.41371C22.366 4.96897 21.9607 3.82895 21.0659 2.93414C20.1711 2.03933 19.031 1.63399 17.5863 1.43975C16.1748 1.24998 14.3658 1.24999 12.0574 1.25ZM3.9948 3.9948C4.56445 3.42514 5.33517 3.09825 6.61358 2.92637C7.91356 2.75159 9.62177 2.75 12 2.75C14.3782 2.75 16.0864 2.75159 17.3864 2.92637C18.6648 3.09825 19.4355 3.42514 20.0052 3.9948C20.5749 4.56445 20.9018 5.33517 21.0736 6.61358C21.2484 7.91356 21.25 9.62177 21.25 12C21.25 14.3782 21.2484 16.0864 21.0736 17.3864C20.9018 18.6648 20.5749 19.4355 20.0052 20.0052C19.4355 20.5749 18.6648 20.9018 17.3864 21.0736C16.0864 21.2484 14.3782 21.25 12 21.25C9.62177 21.25 7.91356 21.2484 6.61358 21.0736C5.33517 20.9018 4.56445 20.5749 3.9948 20.0052C3.42514 19.4355 3.09825 18.6648 2.92637 17.3864C2.75159 16.0864 2.75 14.3782 2.75 12C2.75 9.62177 2.75159 7.91356 2.92637 6.61358C3.09825 5.33517 3.42514 4.56445 3.9948 3.9948Z"
-                    fill="#1C274C"
-                  />
-                </svg>
-                <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                  Successfully logged in, redirecting to Home in 3 seconds...
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {errorModal && (
-        <div
-          id="popup-modal"
-          tabIndex={-1}
-          className="fixed inset-0 z-50 flex items-center justify-center"
+          <path
+            d="M16.0303 10.0303C16.3232 9.73744 16.3232 9.26256 16.0303 8.96967C15.7374 8.67678 15.2626 8.67678 14.9697 8.96967L10.5 13.4393L9.03033 11.9697C8.73744 11.6768 8.26256 11.6768 7.96967 11.9697C7.67678 12.2626 7.67678 12.7374 7.96967 13.0303L9.96967 15.0303C10.2626 15.3232 10.7374 15.3232 11.0303 15.0303L16.0303 10.0303Z"
+            fill="#1C274C"
+          />
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M12.0574 1.25H11.9426C9.63424 1.24999 7.82519 1.24998 6.41371 1.43975C4.96897 1.63399 3.82895 2.03933 2.93414 2.93414C2.03933 3.82895 1.63399 4.96897 1.43975 6.41371C1.24998 7.82519 1.24999 9.63424 1.25 11.9426V12.0574C1.24999 14.3658 1.24998 16.1748 1.43975 17.5863C1.63399 19.031 2.03933 20.171 2.93414 21.0659C3.82895 21.9607 4.96897 22.366 6.41371 22.5603C7.82519 22.75 9.63424 22.75 11.9426 22.75H12.0574C14.3658 22.75 16.1748 22.75 17.5863 22.5603C19.031 22.366 20.171 21.9607 21.0659 21.0659C21.9607 20.171 22.366 19.031 22.5603 17.5863C22.75 16.1748 22.75 14.3658 22.75 12.0574V11.9426C22.75 9.63424 22.75 7.82519 22.5603 6.41371C22.366 4.96897 21.9607 3.82895 21.0659 2.93414C20.171 2.03933 19.031 1.63399 17.5863 1.43975C16.1748 1.24998 14.3658 1.24999 12.0574 1.25ZM4.6156 2.80595C5.32682 2.11847 6.26636 1.80463 7.60419 1.63027C8.94217 1.45589 10.7046 1.45001 12.75 1.45001C14.7954 1.45001 16.5578 1.45589 17.8958 1.63027C19.2336 1.80463 20.1731 2.11847 20.8843 2.80595C21.5718 3.51718 21.8856 4.45672 22.06 5.79455C22.2344 7.13253 22.2403 8.89495 22.2403 10.9404C22.2403 12.9858 22.2344 14.7482 22.06 16.0862C21.8856 17.4239 21.5718 18.3636 20.8843 19.0509C20.1731 19.7384 19.2336 20.0522 17.8958 20.2266C16.5578 20.4009 14.7954 20.4068 12.75 20.4068C10.7046 20.4068 8.94217 20.4009 7.60419 20.2266C6.26636 20.0522 5.32682 19.7384 4.6156 19.0509C3.92812 18.3636 3.61428 17.4239 3.43992 16.0862C3.26554 14.7482 3.25966 12.9858 3.25966 10.9404C3.25966 8.89495 3.26554 7.13253 3.43992 5.79455C3.61428 4.45672 3.92812 3.51718 4.6156 2.80595Z"
+            fill="#1C274C"
+          />
+        </svg>
+        <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+          Successfully logged in, redirecting to Home in 3 seconds...
+        </h3>
+      </Modal>
+      <Modal isOpen={errorModal} onClose={() => setErrorModal(false)}>
+        <svg
+          className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
+          width="50px"
+          height="50px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <div className="relative p-4 w-full max-w-md max-h-full">
-            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <button
-                type="button"
-                className="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                onClick={closeErrorModal}
-              >
-                <svg
-                  className="w-3 h-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 14"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                  />
-                </svg>
-                <span className="sr-only">Close modal</span>
-              </button>
-              <div className="p-4 md:p-5 text-center">
-                <svg
-                  className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
-                  fill="#000000"
-                  width="60px"
-                  height="60px"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M11.001 10h2v5h-2zM11 16h2v2h-2z" />
-                  <path d="M13.768 4.2C13.42 3.545 12.742 3.138 12 3.138s-1.42.407-1.768 1.063L2.894 18.064a1.986 1.986 0 0 0 .054 1.968A1.984 1.984 0 0 0 4.661 21h14.678c.708 0 1.349-.362 1.714-.968a1.989 1.989 0 0 0 .054-1.968L13.768 4.2zM4.661 19 12 5.137 19.344 19H4.661z" />
-                </svg>
-                <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                  Login unsuccessful, some of the data is incorrect. Please try
-                  again.
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+          <path
+            d="M12 10V13"
+            stroke="#1C274C"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M12 17H12.01"
+            stroke="#1C274C"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M12.0001 1.25C8.89749 1.25 6.43994 1.25 4.71459 1.58155C3.01819 1.9031 1.73156 2.51483 0.823545 3.42355C-0.0851685 4.33156 -0.696903 5.61818 -1.01846 7.31458C-1.35 9.03994 -1.35 11.4975 -1.35 14.6001C-1.35 17.7025 -1.35 20.1601 -1.01846 21.8855C-0.696903 23.5819 -0.0851685 24.8685 0.823545 25.7765C1.73156 26.6852 3.01819 27.2969 4.71459 27.6184C6.43994 27.95 8.89749 27.95 12.0001 27.95C15.1025 27.95 17.56 27.95 19.2854 27.6184C20.9818 27.2969 22.2685 26.6852 23.1765 25.7765C24.0852 24.8685 24.6969 23.5819 25.0184 21.8855C25.35 20.1601 25.35 17.7025 25.35 14.6001C25.35 11.4975 25.35 9.03994 25.0184 7.31458C24.6969 5.61818 24.0852 4.33156 23.1765 3.42355C22.2685 2.51483 20.9818 1.9031 19.2854 1.58155C17.56 1.25 15.1025 1.25 12.0001 1.25ZM4.61565 2.8059C5.32687 2.11843 6.26642 1.80458 7.60424 1.6302C8.94221 1.45582 10.7047 1.44995 12.7501 1.44995C14.7954 1.44995 16.558 1.45582 17.8959 1.6302C19.2337 1.80458 20.1732 2.11843 20.8844 2.8059C21.572 3.51712 21.8858 4.45667 22.0602 5.79449C22.2346 7.13247 22.2404 8.8949 22.2404 10.9403C22.2404 12.9857 22.2346 14.7481 22.0602 16.0861C21.8858 17.4238 21.572 18.3634 20.8844 19.0508C20.1732 19.7382 19.2337 20.052 17.8959 20.2264C16.558 20.4008 14.7954 20.4067 12.7501 20.4067C10.7047 20.4067 8.94221 20.4008 7.60424 20.2264C6.26642 20.052 5.32687 19.7382 4.61565 19.0508C3.92818 18.3634 3.61433 17.4238 3.43996 16.0861C3.26558 14.7481 3.2597 12.9857 3.2597 10.9403C3.2597 8.8949 3.26558 7.13247 3.43996 5.79449C3.61433 4.45667 3.92818 3.51712 4.61565 2.8059Z"
+            fill="#1C274C"
+          />
+        </svg>
+        <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+          Login unsuccessful, some of the data is incorrect. Please try again.
+        </h3>
+      </Modal>
     </div>
   );
 }

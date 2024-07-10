@@ -50,7 +50,7 @@ function EventDetail({ params }: { params: { id: string } }) {
       </div>
       <div className={styles.card}>
         <h2 className="font-bold text-xl">{product?.name}</h2>
-        <h4 className="font-bold text-md">Price: ${product?.price}</h4>
+        <h4 className="font-bold text-lg">Price: ${product?.price}</h4>
         <p className="font-bold text-md">Available Stock:{product?.stock}u.</p>
         <p className={styles.description}>{product?.description}</p>
         <Image
