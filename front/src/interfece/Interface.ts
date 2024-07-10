@@ -137,6 +137,18 @@ interface IErrors {
   repeat_password?: string;
 }
 
+interface IModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
+}
+
+interface IUserData {
+  user_name: string;
+  user_email: string;
+  message: string;
+}
+
 export type {
   IRegisterUser,
   IRegisterUserResponse,
@@ -155,4 +167,6 @@ export type {
   IProductContextType,
   IFormValues,
   IErrors,
+  IModalProps,
+  IUserData,
 };
