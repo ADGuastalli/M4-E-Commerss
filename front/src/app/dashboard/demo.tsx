@@ -16,7 +16,7 @@ export const Dashboard: React.FC = () => {
   }, []);
 
   return (
-    <div className="mx-36  ">
+    <div className="mx-36 mb-36">
       <div className="text-center">
         <div className="text-left">
           <h1 className="text-5xl font-bold m-10">My Profile</h1>
