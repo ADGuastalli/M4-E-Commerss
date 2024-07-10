@@ -65,7 +65,7 @@ function Login({ token, setToken }: any) {
             onChange={handleInputChange}
           />
           {errors.email && (
-            <p style={{ color: "red", fontSize: "15px", marginTop: "0px" }}>
+            <p style={{ color: "red", fontSize: "10px", marginTop: "0px" }}>
               {errors.email}
             </p>
           )}
@@ -86,7 +86,7 @@ function Login({ token, setToken }: any) {
             onChange={handleInputChange}
           />
           {errors.password && (
-            <p style={{ color: "red", fontSize: "15px", marginTop: "0px" }}>
+            <p style={{ color: "red", fontSize: "10px", marginTop: "0px" }}>
               {errors.password}
             </p>
           )}

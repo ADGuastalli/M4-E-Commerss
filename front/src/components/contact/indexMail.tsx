@@ -74,7 +74,7 @@ function ContactMail() {
             onChange={handleInputChange}
           />
           {errors.user_name && (
-            <p style={{ color: "red", fontSize: "15px", marginTop: "0px" }}>
+            <p style={{ color: "red", fontSize: "10px", marginTop: "0px" }}>
               {errors.user_name}
             </p>
           )}
@@ -89,7 +89,7 @@ function ContactMail() {
             onChange={handleInputChange}
           />
           {errors.user_email && (
-            <p style={{ color: "red", fontSize: "15px", marginTop: "0px" }}>
+            <p style={{ color: "red", fontSize: "10px", marginTop: "0px" }}>
               {errors.user_email}
             </p>
           )}
@@ -103,7 +103,7 @@ function ContactMail() {
             onChange={handleInputChange}
           />
           {errors.message && (
-            <p style={{ color: "red", fontSize: "15px", marginTop: "0px" }}>
+            <p style={{ color: "red", fontSize: "10px", marginTop: "0px" }}>
               {errors.message}
             </p>
           )}
