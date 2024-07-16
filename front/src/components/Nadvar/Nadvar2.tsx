@@ -45,33 +45,33 @@ function CustomNav() {
       <NavbarCollapse>
         <li>
           <Link href="/home">
-            <button className="self-center whitespace-nowrap text-xl font-semibold text-white ml-5">
+            <button className="self-center whitespace-nowrap text-xl font-semibold text-white ml-5 p-3">
               Home
             </button>
           </Link>
 
           <Link href="/about">
-            <button className="self-center whitespace-nowrap text-xl font-semibold text-white ml-5">
+            <button className="self-center whitespace-nowrap text-xl font-semibold text-white ml-5 p-3">
               About Us
             </button>
           </Link>
 
           {loggedIn ? (
             <Link href="/carrito">
-              <button className="self-center whitespace-nowrap text-xl font-semibold text-white ml-5">
+              <button className="self-center whitespace-nowrap text-xl font-semibold text-white ml-5 p-3">
                 My Shopping Cart
               </button>
             </Link>
           ) : null}
           {!loggedIn ? (
             <Link href="/register-login">
-              <button className="self-center whitespace-nowrap text-xl font-semibold text-white ml-5">
+              <button className="self-center whitespace-nowrap text-xl font-semibold text-white ml-5 p-3">
                 Register - Log In
               </button>
             </Link>
           ) : (
             <Link href="/dashboard">
-              <button className="self-center whitespace-nowrap text-xl font-semibold text-white ml-5">
+              <button className="self-center whitespace-nowrap text-xl font-semibold text-white ml-5 p-3">
                 My Profile
               </button>
             </Link>
