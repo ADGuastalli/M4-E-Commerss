@@ -41,39 +41,42 @@ function CustomNav() {
         </Link>
       </NavbarBrand>
       <NavbarToggle />
+
       <NavbarCollapse>
-        <Link href="/home">
-          <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
-            Home
-          </button>
-        </Link>
+        <li>
+          <Link href="/home">
+            <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
+              Home
+            </button>
+          </Link>
 
-        <Link href="/about">
-          <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
-            About Us
-          </button>
-        </Link>
+          <Link href="/about">
+            <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
+              About Us
+            </button>
+          </Link>
 
-        {loggedIn ? (
-          <Link href="/carrito">
-            <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
-              My Shopping Cart
-            </button>
-          </Link>
-        ) : null}
-        {!loggedIn ? (
-          <Link href="/register-login">
-            <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
-              Register - Log In
-            </button>
-          </Link>
-        ) : (
-          <Link href="/dashboard">
-            <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
-              My Profile
-            </button>
-          </Link>
-        )}
+          {loggedIn ? (
+            <Link href="/carrito">
+              <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
+                My Shopping Cart
+              </button>
+            </Link>
+          ) : null}
+          {!loggedIn ? (
+            <Link href="/register-login">
+              <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
+                Register - Log In
+              </button>
+            </Link>
+          ) : (
+            <Link href="/dashboard">
+              <button className="self-center whitespace-nowrap text-xl font-semibold text-white">
+                My Profile
+              </button>
+            </Link>
+          )}
+        </li>
       </NavbarCollapse>
     </Navbar>
   );

@@ -13,7 +13,7 @@ const Accordion: React.FC<IAccordionProps> = ({ items }) => {
     <div id="accordion-collapse" data-accordion="collapse">
       {items.map((item) => (
         <div key={item.id}>
-          <h2 id={`accordion-collapse-heading-${item.id}`}>
+          <h3 id={`accordion-collapse-heading-${item.id}`}>
             <button
               type="button"
               className="flex items-center justify-between w-full p-5 text-xl font-medium rtl:text-right text-white border border-b-1 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200  hover:bg-gray-300 hover:text-black hover:shadow-md hover:shadow-white focus:bg-gray-300/70 focus:text-black"
@@ -42,7 +42,7 @@ const Accordion: React.FC<IAccordionProps> = ({ items }) => {
                 />
               </svg>
             </button>
-          </h2>
+          </h3>
           <div
             id={`accordion-collapse-body-${item.id}`}
             className={`${expandedItem === item.id ? "" : "hidden"}`}
