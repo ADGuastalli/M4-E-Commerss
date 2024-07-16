@@ -3,7 +3,7 @@ import Robots from "./robots";
 
 function generateRobotsTxt() {
   const robotsContent = Robots();
-  fs.writeFileSync("public/robots.txt", robotsContent);
+  fs.writeFileSync("./robots.ts", robotsContent);
 }
 
 generateRobotsTxt();
