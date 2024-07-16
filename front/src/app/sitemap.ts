@@ -1,19 +1,19 @@
 export default function Sitemap() {
   return [
     {
-      url: "https://m4-mio.onrender.com/home",
+      url: "https://applezone.vercel.app/home",
       lastModified: new Date(),
       changeFrecuency: "Monthly",
       priority: "1.0",
     },
     {
-      url: "https://m4-mio.onrender.com/register",
+      url: "https://applezone.vercel.app/register",
       lastModified: new Date(),
       changeFrecuency: "Monthly",
       priority: "0.9",
     },
     {
-      url: "https://m4-mio.onrender.com/about",
+      url: "https://applezone.vercel.app/about",
       lastModified: new Date(),
       changeFrecuency: "Monthly",
       priority: "0.8",
