@@ -1,9 +1,9 @@
-import { PORT } from "./config/envs";
-import app from "./server";
+import { PORT } from "./src/config/envs";
+import app from "./src/server";
 import "reflect-metadata";
-import { AppDataSource } from "./config/dataSource";
-import { preLoadCategories } from "./helpers/preLoadCategories";
-import { preLoadProducts } from "./helpers/preLoadProducts";
+import { AppDataSource } from "./src/config/dataSource";
+import { preLoadCategories } from "./src/helpers/preLoadCategories";
+import { preLoadProducts } from "./src/helpers/preLoadProducts";
 
 const initialize = async () => {
   console.log("Initializing server");
