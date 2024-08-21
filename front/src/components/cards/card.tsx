@@ -5,7 +5,7 @@ import styles from "./style.module.css";
 import Link from "next/link";
 import Image from "next/image";
 
-const Card: React.FC<IProduct> = ({ name, price, image, id, categoryId }) => {
+const Card: React.FC<IProduct> = ({ name, price, image, id }) => {
   const src: string = image;
 
   return (
