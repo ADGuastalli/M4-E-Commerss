@@ -21,7 +21,9 @@ export const ProductProvider = ({
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await axios.get("m4-e-commerss.vercel.app/products");
+        const response = await axios.get(
+          "https://m4-e-commerss.vercel.app/products"
+        );
         setProducts(response.data);
         setFilteredProducts(response.data);
       } catch (error) {

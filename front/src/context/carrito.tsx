@@ -16,7 +16,7 @@ const addItem = async (
 
   try {
     const response = await axios.get<IProduct>(
-      `m4-e-commerss.vercel.app/products/${product}`
+      `https://m4-e-commerss.vercel.app/products/${product}`
     );
     const data = response.data;
     const updatedCart = [...cartItems, data];
@@ -43,7 +43,7 @@ const checkout = async (CartItems: IProduct[]) => {
   try {
     const products = CartItems.map((item) => item.id);
     const token = localStorage.getItem("token");
-    const response = await fetch("m4-e-commerss.vercel.app/orders", {
+    const response = await fetch("https://m4-e-commerss.vercel.app/orders", {
       method: "POST",
       headers: {
         authorization: `${token}`,
