@@ -1,7 +1,7 @@
 import { IUser, ILogin } from "@/interfece/Interface";
 
 export const postSignup = async (user: Omit<IUser, "id">) => {
-  const response = await fetch("https://m4-mio.onrender.com/users/register", {
+  const response = await fetch("m4-e-commerss.vercel.app/users/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -15,7 +15,7 @@ export const postSignup = async (user: Omit<IUser, "id">) => {
 
 export const postSignin = async (credentials: ILogin) => {
   try {
-    const response = await fetch("https://m4-mio.onrender.com/users/login", {
+    const response = await fetch("m4-e-commerss.vercel.app/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export const postSignin = async (credentials: ILogin) => {
 };
 
 export const getUserOrders = async (token: string) => {
-  const response = await fetch("https://m4-mio.onrender.com/users/orders", {
+  const response = await fetch("m4-e-commerss.vercel.app/users/orders", {
     headers: {
       authorization: `${token}`,
     },
